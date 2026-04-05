@@ -97,5 +97,30 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Golos Text", ui-sans-serif, system-ui, sans-serif;
   }
+}
+
+/* Scrollbar hide utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out both;
 }
