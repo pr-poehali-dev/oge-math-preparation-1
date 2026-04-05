@@ -4,6 +4,7 @@ import TheorySection from "@/components/TheorySection";
 import TrainerSection from "@/components/TrainerSection";
 import VariantsSection from "@/components/VariantsSection";
 import ProgressSection from "@/components/ProgressSection";
+import FormulaSearch from "@/components/FormulaSearch";
 
 // ──────────────────────────────────────────────
 // STORAGE TYPES
@@ -42,10 +43,11 @@ function saveProgress(p: ProgressData) {
 // ──────────────────────────────────────────────
 
 const TABS = [
-  { id: "theory", label: "Теория", shortLabel: "Теория", icon: "BookOpen" },
-  { id: "trainer", label: "Тренажёр", shortLabel: "Тренажёр", icon: "PenLine" },
-  { id: "variants", label: "Варианты", shortLabel: "Варианты", icon: "FileText" },
-  { id: "progress", label: "Мой прогресс", shortLabel: "Прогресс", icon: "TrendingUp" },
+  { id: "theory",   label: "Теория",    shortLabel: "Теория",    icon: "BookOpen" },
+  { id: "formulas", label: "Формулы",   shortLabel: "Формулы",   icon: "FlaskConical" },
+  { id: "trainer",  label: "Тренажёр",  shortLabel: "Тренажёр",  icon: "PenLine" },
+  { id: "variants", label: "Варианты",  shortLabel: "Варианты",  icon: "FileText" },
+  { id: "progress", label: "Прогресс",  shortLabel: "Прогресс",  icon: "TrendingUp" },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
@@ -154,6 +156,7 @@ export default function Index() {
       {/* Content */}
       <main className="max-w-2xl mx-auto px-4 py-6">
         {tab === "theory" && <TheorySection />}
+        {tab === "formulas" && <FormulaSearch />}
         {tab === "trainer" && (
           <TrainerSection
             onAnswer={handleTrainerAnswer}
